@@ -14,7 +14,12 @@ class Movie {
 
     }
 
+    public function getFullName() {
 
+        return $this -> title
+        . " - " . $this -> genre 
+        . " (" . $this -> lang . ")";
+    }
 }
 
 
