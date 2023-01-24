@@ -15,9 +15,9 @@ class Movie {
     }
 
     public function getAllGenre(){
-
+        $str = "";
         foreach ($this -> genres as $genre){
-            $str = "";
+
             $str.= $genre;
         }
         return $str;
@@ -26,7 +26,7 @@ class Movie {
     public function getFullName() {
 
         return $this -> title
-        . " - " . $this -> genres 
+        . " - " . $this -> getAllGenre()
         . " (" . $this -> lang . ")";
     }
 }
