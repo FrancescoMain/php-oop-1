@@ -22,10 +22,12 @@ class Movie {
     }
 }
 
-$movie1 = new Movie ("harry potter" , "fantasy" , "italiano");
-$movie2 = new Movie ("batteman" , "drammatico" , "romano");
+$harrypotter = new Movie ("harry potter" , "fantasy" , "italiano");
+$batteman = new Movie ("batteman" , "drammatico" , "romano");
+$movies = [$harrypotter,$batteman];
 
-echo "<br>";
-echo $movie1 -> getFullName();
-echo "<br>";
-echo $movie2 -> getFullName();
+foreach ($movies as $movie) {
+    echo "<br>";
+    echo $movie -> getFullName();
+}
+
