@@ -14,6 +14,14 @@ class Movie {
 
     }
 
+    public function getAllGenre(){
+
+        foreach ($this -> genres as $genre){
+            $str = "";
+            $str.= $genre;
+        }
+        return $str;
+    }
 
     public function getFullName() {
 
