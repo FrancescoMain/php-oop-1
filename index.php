@@ -22,5 +22,6 @@ class Movie {
     }
 }
 
-
+$movie1 = new Movie ("harry potter" , "fantasy" , "italiano");
+$movie2 = new Movie ("batteman" , "drammatico" , "romano");
 
