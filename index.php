@@ -1,56 +1,74 @@
-<?php
+<?php 
 
 class Movie {
+    private $title;
+    private $year;
+    private $director;
+    private $rating;
+    private $genres;
 
-    public $title;
-    public array $genres;
-    public $lang;
-
-    public function __construct ($title,array $genres, $lang) {
-        $this -> title = $title;
-        $this -> genres = $genres;
-        $this -> lang = $lang;
-        
-
+    public function __construct($title, $year, $director, $rating, $genres) {
+        $this->title = $title;
+        $this->year = $year;
+        $this->director = $director;
+        $this->rating = $rating;
+        $this->genres = $genres;
     }
 
-    public function getAllGenre(){
-        $str = "";
-        foreach ($this -> genres as $genre){
+    public function getTitle() {
+        return $this->title;
+    }
 
-            $str.= $genre;
+    public function setTitle($title) {
+        $this->title = $title;
+    }
+
+    public function getYear() {
+        return $this->year;
+    }
+
+    public function setYear($year) {
+        $this->year = $year;
+    }
+
+    public function getDirector() {
+        return $this->director;
+    }
+
+    public function setDirector($director) {
+        $this->director = $director;
+    }
+
+    public function getRating() {
+        return $this->rating;
+    }
+
+    public function setRating($rating) {
+        $this->rating = $rating;
+    }
+
+    public function getGenres() {
+        return $this->genres;
+    }
+
+    public function setGenres($genres) {
+        $this->genres = $genres;
+    }
+    public function getMovieData() {
+        $data = "Title: " . $this->getTitle() . "\nYear: " . $this->getYear() . "\nDirector: " . $this->getDirector() . "\nRating: " . $this->getRating() . "\nGenres: ";
+        foreach($this->getGenres() as $genre) {
+            $data .= $genre . ",";
         }
-        return $str;
-    }
-
-    public function getFullName() {
-
-        return $this -> title
-        . " - " . $this -> getAllGenre()
-        . " (" . $this -> lang . ")";
+        return $data;
     }
 }
 
-class Genre {
-    public $name;
 
-    public function __construct ($name) {
-        $this -> name = $name;
-    }
-}
 
-$fantasy = new Genre("fantasy");
-$romantico = new Genre("romantico");
+require_once 'db.php';
 
-$genres = [$fantasy, $romantico];
-
-$harrypotter = new Movie ("harry potter" , $genres  , "italiano");
-
-$batteman = new Movie ("batteman" , $genres , "romano");
-$movies = [$harrypotter,$batteman];
-
+echo "<ul>";
 foreach ($movies as $movie) {
-    echo "<br>";
-    echo $movie -> getFullName();
+    echo "<li>".$movie->getMovieData()."</li>";
 }
-
+echo "</ul>";
